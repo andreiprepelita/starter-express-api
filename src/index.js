@@ -17,8 +17,6 @@ const connect = async () => {
   }
 }
 
-connect();
-
 const app = express();
 app.use(cors());
 app.use(function(req, res, next) {
@@ -31,7 +29,7 @@ app.use(express.json());
 
 const save = async (data) => {
   const response = await Form.create(data);
-  console.log(response);
+  // console.log(response);
 }
 
 app.get('/', (req, res) => {
@@ -353,6 +351,8 @@ app.get('/find/workIndustry', (req, res) => {
 app.use(notFound);
 app.use(errorHandler);
 
-app.listen(PORT, () => {
-  console.log(`Listening: http://localhost:${PORT}`);
+connect().then(() => {
+  app.listen(PORT, () => {
+    console.log(`Listening: http://localhost:${PORT}`);
+  });
 });
