@@ -31,13 +31,8 @@ app.use(express.json());
 
 const save = async (data) => {
   const response = await Form.create(data);
-}
-
-const findAge = async (query) => {
-  console.log('finding...');
-  const response = await Form.find({});
   console.log(response);
-};
+}
 
 app.get('/', (req, res) => {
   res.json({
