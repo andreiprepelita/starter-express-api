@@ -74,6 +74,10 @@ const formSchema = new Schema({
         timeUntilAction: Number,
         totalTime: Number,
     },
+    swipeBestExperience: String,
+    scrollBestExperience: String,
+    doubleTapBestExperience: String,
+    pinchSpreadBestExperience: String,
 });
 
 export default mongoose.model('formular', formSchema);
