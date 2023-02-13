@@ -348,6 +348,17 @@ app.get('/find/workIndustry', (req, res) => {
   });
 });
 
+app.get('/find/country', (req, res) => {
+  const countries = JSON.parse(req.query.countries);
+  const query = {country: {$in: countries}};
+  Form.find(query, (err, responses) => {
+    if (err) {
+      console.log(err);
+    }
+    res.json(responses);
+  });
+});
+
 app.post('/device', (req, res) => {
   try {
     if ( req.body ) {
